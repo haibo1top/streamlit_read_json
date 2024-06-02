@@ -14,31 +14,44 @@ EVENT_MAP: pd.DataFrame = pd.read_csv(EVENT_PATH, encoding="utf-8")
 # 公共属性
 PROPERTIES_PATH: str = r'mapfile/vw_properties_list.csv'
 PROPERTIES_MAP: pd.DataFrame = pd.read_csv(PROPERTIES_PATH, encoding="utf-8")
+# 关键属性
+KEY_PROPWERIES = ["$title", "$element_content"]
 
 
 # 封装sqlite3 操作
 class SqLiteDb(object):
+    """
+    sqlite连接对象
+    """
     def __init__(self, db_name):
         self.connection = sqlite3.connect(db_name)
         self.cursor = self.connection.cursor()
 
     def execute(self, query, params=()):
-        # 插入sql语句并提交事务
+        """
+        插入sql语句并提交事务
+        """
         self.cursor.execute(query, params)
         self.connection.commit()
 
     def fetchall(self, query):
-        # 返回查询结果
+        """
+        返回查询结果
+        """
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
     def close(self):
-        # 关闭链接
+        """
+        关闭链接
+        """
         self.connection.close()
 
 
-def IsJson(data):
-    # 判断传入的是否是个json
+def is_json(data):
+    """
+    判断传入的是否是个json
+    """
     try:
         json.loads(data)
         return True
@@ -46,11 +59,15 @@ def IsJson(data):
         return False
 
 
-# 关键属性
-KEY_PROPWERIES = ["$title", "$element_content"]
-
-
 def ReadJson(jon: str, event_map: pd.DataFrame, propertie_map: pd.DataFrame, key_properties=KEY_PROPWERIES):
+    """
+    解读json数据
+    :param jon: json文本
+    :param event_map: 事件表
+    :param propertie_map: 属性表
+    :param key_properties: 查看的关键属性
+    :return: 事件和用户ID, 事件名, 关键属性, 自定义属性, 预知属性, 格式化文案
+    """
     json_text = jon.strip()
     json_data = json.loads(json_text)
     # 组装用户id和触发时间
@@ -95,19 +112,24 @@ def ReadJson(jon: str, event_map: pd.DataFrame, propertie_map: pd.DataFrame, key
 
 
 def clean_test_json():
+    """
+    清空json文本框内容
+    """
     if 'test_json' in st.session_state:
         st.session_state['test_json'] = ""
 
 
 def ShowJsonData():
-    # 根据选择的加载工具，展示json解析的操作步骤和数据处理
+    """
+    根据选择的加载工具，展示json解析的操作步骤和数据处理
+    """
     st.title("json解读好帮手(匹配元数据中文名)")
     json_text = st.text_area("将复制的内容粘贴此处", height=40, key='test_json')
-    if json_text != "" and IsJson(json_text):
+
+    # 在文本框有内容的情况下，现实清空按钮
+    if json_text != "" and is_json(json_text):
         st.button("清空", on_click=clean_test_json)
-        time_and_id, event_name, key_propertie, propertie, propertie_all, event_code = ReadJson(jon=json_text,
-                                                                                                event_map=EVENT_MAP,
-                                                                                                propertie_map=PROPERTIES_MAP)
+        time_and_id, event_name, key_propertie, propertie, propertie_all, event_code = ReadJson(jon=json_text, event_map=EVENT_MAP, propertie_map=PROPERTIES_MAP)
         # st.markdown("###### 查询sql")
         # st.code(sql_connet,language='sql')
         st.code(event_code)
