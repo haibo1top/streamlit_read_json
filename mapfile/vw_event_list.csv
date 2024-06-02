@@ -1,0 +1,22 @@
+事件名,事件显示名
+$pageview,Web 浏览页面
+$WebClick,Web 元素点击
+$WebStay,Web 视区停留
+$WebPageLeave,Web 页面浏览时长
+$WebPageLoad,Web 页面加载时长
+$AppStart,App 启动
+$AppEnd,App 退出
+$AppViewScreen,App 浏览页面
+$AppClick,App 元素点击
+$AppInstall,App 安装后首次启动
+AppInstall,App 激活
+AppCrashed,App 崩溃
+$AppStartPassively,App 被动启动
+$AppRemoteConfigChanged,远程控制配置变化
+$AppDeeplinkLaunch,深度链接唤醒 App
+$AppDeeplinkMatchedResult,深度链接匹配结果
+$AppPushClick,App 推送点击
+$ABTestTrigger,A/B 测试
+$AppPageLeave,页面离开
+$PlanPopupDisplay,弹窗展示
+$PlanPopupClick,弹窗点击
