@@ -9,10 +9,10 @@ import sqlite3
 
 # 按采集方案校验
 # 事件列表
-EVENT_PATH: str = r'/home/ubuntu/python_project/streamlit_project/py/mapfile/vw_event_list.csv'
+EVENT_PATH: str = r'mapfile/vw_event_list.csv'
 EVENT_MAP: pd.DataFrame = pd.read_csv(EVENT_PATH, encoding="utf-8")
 # 公共属性
-PROPERTIES_PATH: str = r'/home/ubuntu/python_project/streamlit_project/py/mapfile/vw_properties_list.csv'
+PROPERTIES_PATH: str = r'mapfile/vw_properties_list.csv'
 PROPERTIES_MAP: pd.DataFrame = pd.read_csv(PROPERTIES_PATH, encoding="utf-8")
 
 
