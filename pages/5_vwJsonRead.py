@@ -15,7 +15,9 @@ EVENT_MAP: pd.DataFrame = pd.read_csv(EVENT_PATH, encoding="utf-8")
 PROPERTIES_PATH: str = r'mapfile/vw_properties_list.csv'
 PROPERTIES_MAP: pd.DataFrame = pd.read_csv(PROPERTIES_PATH, encoding="utf-8")
 # 关键属性
-KEY_PROPWERIES = ["$title", "$element_content"]
+KEY_PROPERTIES_PATH: str = r'mapfile/ht_key_properties_list.csv'
+with open(KEY_PROPERTIES_PATH, "r") as f:
+    KEY_PROPWERIES = f.read().split("\n")
 
 
 # 封装sqlite3 操作
