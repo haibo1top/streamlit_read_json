@@ -10,14 +10,26 @@ import sqlite3
 # 按采集方案校验
 # 事件列表
 EVENT_PATH: str = r'mapfile/ht_event_list.csv'
-EVENT_MAP: pd.DataFrame = pd.read_csv(EVENT_PATH, encoding="utf-8")
 # 公共属性
 PROPERTIES_PATH: str = r'mapfile/ht_properties_list.csv'
-PROPERTIES_MAP: pd.DataFrame = pd.read_csv(PROPERTIES_PATH, encoding="utf-8")
 # 关键属性
 KEY_PROPERTIES_PATH: str = r'mapfile/ht_key_properties_list.csv'
-with open(KEY_PROPERTIES_PATH, "r") as f:
-    KEY_PROPWERIES = f.read().split("\n")
+
+
+@st.cache_data
+def radio_map_data(event_path: str, properties_path: str, key_properties_path: str):
+    """
+    读取csv中的事件属性方案
+    :param event_path: 事件表路径
+    :param properties_path: 自定义属性和预知属性表路径
+    :param key_properties_path: 关键属性表路径
+    :return:
+    """
+    event_map = pd.read_csv(event_path, encoding="utf-8")
+    properties_map = pd.read_csv(properties_path, encoding="utf-8")
+    with open(key_properties_path, "r", encoding="utf-8") as f:
+        key_properties_map = f.read().split("\n")
+    return event_map, properties_map, key_properties_map
 
 
 # 封装sqlite3 操作
@@ -61,15 +73,14 @@ def is_json(data):
         return False
 
 
-def ReadJson(jon: str, event_map: pd.DataFrame, propertie_map: pd.DataFrame, key_properties=KEY_PROPWERIES):
+def read_json(jon: str, data_map: tuple):
     """
     解读json数据
+    :param data_map: 校验事件属性
     :param jon: json文本
-    :param event_map: 事件表
-    :param propertie_map: 属性表
-    :param key_properties: 查看的关键属性
     :return: 事件和用户ID, 事件名, 关键属性, 自定义属性, 预知属性, 格式化文案
     """
+    event_map, propertie_map, key_properties = data_map
     json_text = jon.strip()
     json_data = json.loads(json_text)
     # 组装用户id和触发时间
@@ -82,6 +93,7 @@ def ReadJson(jon: str, event_map: pd.DataFrame, propertie_map: pd.DataFrame, key
     event_name = pd.DataFrame(event_cname)
     event_name['事件名'] = json_data['event']
     event_name = event_name.loc[:, ["事件名", "事件显示名"]]
+    event_name.index = [0]
     # 比对采集方案和上报自定义属性，
     propertie_map_dict = propertie_map.to_dict("list")
     key_propertie_k = [k for k, v in json_data['properties'].items() if k in key_properties]
@@ -129,7 +141,7 @@ def clean_test_json():
         st.session_state['test_json'] = ""
 
 
-def ShowJsonData():
+def show_json_data():
     """
     根据选择的加载工具，展示json解析的操作步骤和数据处理
     """
@@ -139,34 +151,36 @@ def ShowJsonData():
     # 在文本框有内容的情况下，现实清空按钮
     if json_text != "" and is_json(json_text):
         st.button("清空", on_click=clean_test_json)
-        time_and_id, event_name, key_propertie, propertie, propertie_all, event_code = ReadJson(jon=json_text, event_map=EVENT_MAP, propertie_map=PROPERTIES_MAP)
+        event_map, properties_map, key_properties_map = radio_map_data(EVENT_PATH, PROPERTIES_PATH, KEY_PROPERTIES_PATH)
+        time_and_id, event_name, key_propertie, propertie, propertie_all, event_code = read_json(jon=json_text, data_map=(event_map, properties_map, key_properties_map))
         # st.markdown("###### 查询sql")
         # st.code(sql_connet,language='sql')
-        st.code(event_code)
-        with st.expander('格式化json（展开/折叠）'):
-            st.json(json_text)
+
         # 展示是否是新规范埋点
         if "track_sign" in key_propertie.T["属性名"].values:
             st.info("新规范埋点")
         else:
             st.warning("老规范埋点")
+
+        st.code(event_code)
         r1com1, r1com2 = st.columns(2)
         r1com2.markdown("###### 触发时间&用户ID")
-        r1com2.dataframe(time_and_id)
+        r1com2.dataframe(time_and_id, width=580)
         r1com1.markdown("###### 事件")
-        r1com1.dataframe(event_name)
+        r1com1.dataframe(event_name, width=580)
         st.markdown("###### 自定义属性(关键)")
-        st.dataframe(key_propertie.T)
+        st.dataframe(key_propertie.T, width=800)
         r2com1, r2com2 = st.columns(2)
         r2com1.markdown("###### 自定义属性")
-        r2com1.dataframe(propertie.T)
+        r2com1.dataframe(propertie.T, width=800, height=600)
         r2com2.markdown("###### 预置属性")
-        r2com2.dataframe(propertie_all.T)
+        r2com2.dataframe(propertie_all.T, width=800, height=600)
 
         # st.markdown("###### 方案外属性")
         # st.dataframe(pop_map[1])
         st.markdown(" ")
-
+        with st.expander('格式化json（展开/折叠）'):
+            st.json(json_text)
     elif json_text != "":
         st.warning("注意：内容不可被解析，请传入json格式数据！")
     else:
@@ -175,4 +189,4 @@ def ShowJsonData():
 
 if __name__ == "__main__":
     st.set_page_config(page_title="json解读好帮手", page_icon="🤣", layout="wide")
-    ShowJsonData()
+    show_json_data()
