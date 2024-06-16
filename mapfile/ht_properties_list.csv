@@ -1,0 +1,252 @@
+属性名,属性中文名,数据类型,说明
+track_sign,埋点标识,,
+account,account,,
+appid,appid,,
+branchno,branchno,,
+build,build,,
+channel,channel,,
+cid,cid,,
+communityId,communityId,,
+fromPage,fromPage,,
+htid,htid,,
+idfa,idfa,,
+mac,mac,,
+messageType,messageType,,
+phonenum,phonenum,,
+productId,productId,,
+clickKey,功能编码,,
+clickType,clickType,,
+page_name,page_name,,
+transactionType,transactionType,,
+transferType,transferType,,
+status,status,,
+orderType,orderType,,
+agreementName,agreementName,,
+duration,duration,,
+pageName,pageName,,
+serialNo,serialNo,,
+transactionName,transactionName,,
+IMEI,IMEI,,
+htAid,htAid,,
+pubcid,pubcid,,
+funcName,funcName,,
+streamerId,streamerId,,
+mainIndex,mainIndex,,
+subIndex1,subIndex1,,
+subIndex2,subIndex2,,
+tabName,tabName,,
+buttonName,buttonName,,
+refine_type,refine_type,,
+bannerId,bannerId,,
+pag123123eName,pag123123eName,,
+operationType,operationType,,
+open_channel,open_channel,,
+open_platform,open_platform,,
+column,column,,
+from,from,,
+module_from,module_from,,
+page_from,page_from,,
+pointproduct_ID,pointproduct_ID,,
+pointproduct_name,pointproduct_name,,
+pointproduct_point,pointproduct_point,,
+pointproduct_price,pointproduct_price,,
+module_ID,module_ID,,
+module_name,module_name,,
+points,points,,
+newsTitle,newsTitle,,
+courseId,courseId,,
+roadShowType,roadShowType,,
+stockCode,stockCode,,
+refreshType,refreshType,,
+fixed_investment_type,fixed_investment_type,,
+productCode,productCode,,
+articleId,articleId,,
+isTradeDate,isTradeDate,,
+theModule,theModule,,
+toAccountId,toAccountId,,
+toAccountNickName,toAccountNickName,,
+activityName,activityName,,
+productName,productName,,
+productState,productState,,
+productType,productType,,
+trade_type,trade_type,,
+defaultPriceName,defaultPriceName,,
+type,type,,
+messageId,messageId,,
+newsId,newsId,,
+position,position,,
+accessSource,accessSource,,
+activityId,activityId,,
+activityType,activityType,,
+followedId,followedId,,
+followedType,followedType,,
+isBigV,isBigV,,
+postId,postId,,
+funcId,funcId,,
+businessType,businessType,,
+shareType,shareType,,
+firstTab,firstTab,,
+secondTab,secondTab,,
+thirdTab,thirdTab,,
+gain,gain,,
+nav,nav,,
+productSubType,productSubType,,
+yield,yield,,
+button_name,button_name,,
+durationTime,durationTime,,
+requirement_id,requirement_id,,
+track_sign,track_sign,,
+bannerName,bannerName,,
+marketName,marketName,,
+newsSource,newsSource,,
+platform_name,platform_name,,
+skin_name,skin_name,,
+tcId,tcId,,
+tcName,tcName,,
+stockName,stockName,,
+errorType,errorType,,
+isSucceed,isSucceed,,
+registerType,registerType,,
+videoTitle,videoTitle,,
+videoType,videoType,,
+logintype,logintype,,
+fromPagecode,fromPagecode,,
+listName,listName,,
+listProductType,listProductType,,
+dialogId,dialogId,,
+dialogStyleId,dialogStyleId,,
+moduleLaunchTime,moduleLaunchTime,,
+moduleName,moduleName,,
+is_point_enough,is_point_enough,,
+isOn,isOn,,
+btnAction,btnAction,,
+Popup_content,Popup_content,,
+Popup_title,Popup_title,,
+Popup_type,Popup_type,,
+transaction_name,transaction_name,,
+transaction_type,transaction_type,,
+ErrorMsg,ErrorMsg,,
+errorCode,errorCode,,
+errorSource,errorSource,,
+loginMode,loginMode,,
+title,title,,
+supportedAbis,supportedAbis,,
+positionType,positionType,,
+clicKey,clicKey,,
+video_result,video_result,,
+video_type,video_type,,
+fundId,fundId,,
+fundName,fundName,,
+clientId,clientId,,
+fundCode,fundCode,,
+secondMenuName,secondMenuName,,
+theTab,theTab,,
+hotWordType,hotWordType,,
+isHistoryWord,isHistoryWord,,
+isHotWord,isHotWord,,
+keyword,keyword,,
+searchPage,searchPage,,
+consumer_pay,consumer_pay,,
+fund_account,fund_account,,
+money_wallet,money_wallet,,
+otc_account,otc_account,,
+shA_account,shA_account,,
+szA_account,szA_account,,
+readPercent,readPercent,,
+readTimeSpent,readTimeSpent,,
+adGroupId,adGroupId,,
+adId,adId,,
+attribution,attribution,,
+campaignId,campaignId,,
+clickDate,clickDate,,
+conversionType,conversionType,,
+countryOrRegion,countryOrRegion,,
+keywordId,keywordId,,
+orgId,orgId,,
+branch_id,branch_id,,
+branch_name,branch_name,,
+marketer_code,marketer_code,,
+buyType,buyType,,
+cpjz,cpjz,,
+fromModule,fromModule,,
+prodID,prodID,,
+syl,syl,,
+sylsx,sylsx,,
+sylxx,sylxx,,
+bannerPage,bannerPage,,
+signalName,signalName,,
+activationStatus,activationStatus,,
+$anonymization_id,匿名化 ID,字符串,经过 base64 混淆后的 $device_id
+$app_id,应用唯一标识,字符串,App 的唯一标识
+$app_name,应用名称,字符串,应用的名称
+$app_version,应用版本,字符串,APP 的应用版本
+$brand,设备品牌,字符串,设备品牌
+$carrier,运营商名称,字符串,事件触发时设备 SIM 卡的运营商名称，如果 Android 没有获取 READ_PHONE_STATE 权限，或者未插卡，则无法获取运营商名称；如果 iOS 未插卡，则无法获取运营商名称
+$city,城市,字符串,由 IP 解析得到
+$country,国家,字符串,由 IP 解析得到
+$device_id,设备 ID,字符串,Android 端主要取 Android ID ，iOS 端先尝试获取 IDFA，如果获取不到，则取 IDFV，具体取值逻辑可参考文档 如何准确的标识用户
+$element_class_name,元素样式名,字符串,元素有 class 属性的时候才采集
+$element_content,元素内容,字符串,元素标签对直接的文本，例如：<a><span>提交</span></a>，采集的是 “提交”
+$element_id,元素ID,字符串,元素有 id 属性才采集
+$element_name,元素名字,字符串,元素有 name 属性的时候才采集
+$element_path,元素路径,字符串,可视化全埋点功能会采集该属性的值，需要手动代码开启
+$element_position,元素位置,字符串,元素在模块中的位置，从 0 开始。
+$element_selector,元素选择器,字符串,默认采集
+$element_target_url,元素链接地址,字符串,a 标签默认采集
+$element_type,元素类型,字符串,控件的类型，例如 Button
+$event_duration,浏览时长,数值,页面浏览时长，单位 秒
+$geo_coordinate_system,坐标系,字符串,只有在开启 enableTrackGPSLocation: 时才会采集
+$ip,IP,字符串,后端通过解析 HTTP 请求而得到
+$is_first_day,是否首日访问,布尔值,表示是否是首日触发事件，可参考文档 新增用户及首日首次标记
+$is_first_time,是否首次,布尔值,新用户首次访问页面时，触发的第一个 $pageview ，该属性值为 true，后续再触发 $pageview 事件时，该属性都为 false。
+$is_login_id,是否登录 ID,布尔值,数据入库时判断添加
+$latest_landing_page,最近一次落地页,字符串,1.14.8 及以上版本，默认不采集，需要手动设置 preset_properties 详细配置参考
+$latest_referrer,最近一次站外地址,字符串,只要前向域名不是当前页面的域名，就会重置
+$latest_referrer_host,最近一次站外域名,字符串,1.14.8 及以上版本，默认不采集，需要手动设置 preset_properties 详细配置参考
+$latest_search_keyword,搜索引擎关键词,字符串,由于各搜索引擎策略不同，可能有获取不到的情况
+$latest_traffic_source_type,最近一次流量来源类型,字符串,取值规则可参考文档 流量来源类型说明
+$latest_utm_campaign,最近一次广告系列名称,字符串,使用 Web 渠道追踪 后，只要 URL 中包含 对应渠道信息（ utm_ 参数）就会重置
+$latest_utm_content,最近一次广告系列内容,字符串,使用 Web 渠道追踪 后，只要 URL 中包含 对应渠道信息（ utm_ 参数）就会重置
+$latest_utm_medium,最近一次广告系列媒介,字符串,使用 Web 渠道追踪 后，只要 URL 中包含 对应渠道信息（ utm_ 参数）就会重置
+$latest_utm_source,最近一次广告系列来源,字符串,使用 Web 渠道追踪 后，只要 URL 中包含 对应渠道信息（ utm_ 参数）就会重置
+$latest_utm_term,最近一次广告系列字词,字符串,使用 Web 渠道追踪 后，只要 URL 中包含 对应渠道信息（ utm_ 参数）就会重置
+$latitude,GPS 信息,数值,纬度*106
+$lib,SDK类型,字符串,SDK 类型，比如 Android/iOS
+$lib_method,埋点方式,字符串,埋点方式，目前值统一为 code
+$lib_version,SDK 版本,字符串,SDK 版本
+$longitude,GPS 信息,数值,只有在开启 enableTrackGPSLocation: 时才会采集
+$manufacturer,设备制造商,字符串,设备制造商
+$model,设备型号,字符串,设备型号
+$network_type,网络类型,字符串,事件触发时的网络类型，如果 SDK 没有获取网络类型的权限，或者手机为飞行模式、未插卡且没有连接 WiFi等情况，则无法获取网络类型。
+$os,操作系统,字符串,操作系统
+$os_version,操作系统版本,字符串,操作系统版本
+$page_height,页面高度,数值,
+$page_resource_size,页面资源大小,数值,1.21.7 版本开始采集，页面资源大小，单位是 kb，大小限制大于 0，小于 10G 采集，不满足则不采集。
+$page_x,点击位置距网页左侧距离,数值,1.21.5 版本开始采集 $page_x 和 $page_y。
+$page_y,点击位置距网页顶部距离,数值,1.21.5 版本开始采集 $page_x 和 $page_y。
+$province,省份,字符串,由 IP 解析得到
+$referrer,前向地址,字符串,如果直接打开页面，值为空字符串
+$referrer_host,前向域名,字符串,如果直接打开页面，值为空字符串
+$referrer_title,前向页面标题,字符串,前一个页面标题
+$screen_height,屏幕高度,数值,屏幕高度，采集的是像素
+$screen_name,页面名称,字符串,Activity 的包名.类名（Android 端） / ViewController 的类名（iOS 端）；可手动设置该属性的值
+$screen_orientation,屏幕方向,字符串,只有在开启 enableTrackScreenOrientation: 时才会采集
+$screen_width,屏幕宽度,数值,屏幕宽度，采集的是像素
+$timezone_offset,时区偏移量,数值,App 或系统的时区
+$title,页面标题,字符串,Activity 的标题（Android 端）/ViewController 的标题（iOS 端）
+$url,页面地址,字符串,自动采集的版本 Android：3.2.8，iOS：1.11.5 
+$url_host,页面地址域名,字符串,由服务端进行解析，如果事件中上报了 $url，则会解析出来该属性
+$url_path,页面路径,字符串,
+$utm_campaign,广告系列名称,字符串,打开页面的 url 有该参数就采集
+$utm_content,广告系列内容,字符串,打开页面的 url 有该参数就采集
+$utm_medium,广告系列媒介,字符串,打开页面的 url 有该参数就采集
+$utm_source,广告系列来源,字符串,打开页面的 url 有该参数就采集
+$utm_term,广告系列字词,字符串,打开页面的 url 有该参数就采集
+$viewport_height,视区高度,数值,视区高度（当前浏览器的可视区域的高度，单位是 px。）
+$viewport_position,视区距顶部的位置,数值,视区距顶部的位置（当前滚动条所在位置，距离页面顶部的高度，单位是 px。）
+$viewport_width,视区宽度,数值,视区宽度（当前浏览器的可视区域的宽度，单位是 px。）
+$wifi,是否 WiFi,布尔值,事件触发时是否为 WiFi
+$browser,浏览器,字符串,
+$browser_version,浏览器版本,字符串,
+$track_signup_original_id,$track_signup_original_id,字符串,
+$idmap_reason,$idmap_reason,,
